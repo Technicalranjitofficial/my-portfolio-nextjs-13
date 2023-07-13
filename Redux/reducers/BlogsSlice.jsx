@@ -12,6 +12,9 @@ const initialState = {
     loading:false,
     blogOffset:0,
     hasMoreBlogs:true,
+    openSearch:false,
+    searchData:[]
+
 }
 const BlogSlice = createSlice({
     name:"BlogSlice",
@@ -41,8 +44,18 @@ const BlogSlice = createSlice({
         },
         setHasMoreBlogs:(state,action)=>{
             state.hasMoreBlogs = action.payload;
-        }
+        },
 
+        setOpenSearch:(state,action)=>{
+            state.openSearch = action.payload;
+        },
+
+        setSearchData:(state,action)=>{
+            state.searchData = action.payload;
+        },
+
+
+        
         
 
 
@@ -50,6 +63,6 @@ const BlogSlice = createSlice({
     
 })
 
-export const {setProjectList,setMainPageBlogList,setPinnedList,setAllBlogList,setMorePost,setBlogOffset,setLoading,setHasMoreBlogs} = BlogSlice.actions
+export const {setProjectList,setMainPageBlogList,setPinnedList,setAllBlogList,setMorePost,setBlogOffset,setLoading,setHasMoreBlogs,setOpenSearch,setSearchData} = BlogSlice.actions
 
 export default BlogSlice.reducer;

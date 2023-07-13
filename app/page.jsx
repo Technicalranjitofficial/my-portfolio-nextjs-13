@@ -40,10 +40,14 @@ export default function Home() {
     if (error) {
       console.log(error);
     }
+    if(document.body.getElementsByClassName("body-overflow-hidden")!=null){
+    document.body.classList.remove("body-overflow-hidden");
 
+    }
     if (data) {
       if (store.getState().BlogSlice.mainPageBlogList.length < 1) {
         dispatch(setMainPageBlogList(data.latestBlogs));
+
       }
       if (store.getState().BlogSlice.projectList.length < 1) {
         dispatch(setProjectList(data.allProject));

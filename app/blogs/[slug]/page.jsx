@@ -37,6 +37,10 @@ const Page = ({ params }) => {
   }
   if (data) {
     console.log(data);
+    if(document.body.getElementsByClassName("body-overflow-hidden")!=null){
+      document.body.classList.remove("body-overflow-hidden");
+  
+      }
   }
 
   return (

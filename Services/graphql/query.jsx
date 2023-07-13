@@ -136,3 +136,21 @@ query GetSinglePost($slug:String){
 }
 
 `
+export const SEARCH_BLOG=gql`
+query GetSinglePost($query:String){
+  searchBlog: allBlog(where:{title:{matches:$query}}) {
+    title
+   
+    slug {
+      current
+    }
+    poster {
+      asset {
+        url
+      }
+    }
+    createdAt
+  }
+}
+
+`
