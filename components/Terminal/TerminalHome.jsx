@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from "react";
 import CustomInput from "./CustomInput";
 import { useDispatch, useSelector } from "react-redux";

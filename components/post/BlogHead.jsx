@@ -1,10 +1,29 @@
-import React from "react";
+
+"use client"
+import React, { useEffect } from "react";
 import BlogCard from "./BlogCard";
 import { convertDate } from "@/Redux/helper/Other";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { setPinnedList } from "@/Redux/reducers/BlogsSlice";
+import PinnedListSkeleton from "../PinnedListSkeleton";
 
-const BlogHead = ({pinnedBlogs}) => {
+const BlogHead = ({data}) => {
+
+
+  console.log(data)
+
+  const pinnedBlogs = useSelector((state)=>state.BlogSlice.pinnedList);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(setPinnedList(data));
+    console.log("datdsddddddddddddddddddda",data,pinnedBlogs)
+  },[data])
   return (
+    <>
+    {pinnedBlogs.length ==0 ? <PinnedListSkeleton/>
+    // {console.log("pinnedBlogs",pinnedBlogs[0])}
+    :
     <div className="flex gap-8 flex-col w-full  md:flex-row ">
       <div className="left flex flex-col w-full md:w-8/12">
        <Link  href={`/blogs/${pinnedBlogs[0].slug.current}`}>
@@ -34,7 +53,8 @@ const BlogHead = ({pinnedBlogs}) => {
         <BlogCard blogs={pinnedBlogs[1]} />
         <BlogCard blogs={pinnedBlogs[2]} />
       </div>
-    </div>
+    </div>}
+    </>
   );
 };
 

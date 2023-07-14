@@ -135,6 +135,34 @@ query GetSinglePost($slug:String){
   }
 }
 
+`;
+
+
+
+export const SINGLE_P=gql`
+query GetSinglePost{
+    allBlog{
+
+     
+        title,
+   description,
+   slug{
+     current
+   }
+   poster{
+     asset{
+       url
+     }
+   }
+ 
+   user{
+     title
+   }
+   createdAt
+    contentRaw
+  }
+}
+
 `
 export const SEARCH_BLOG=gql`
 query GetSinglePost($query:String){

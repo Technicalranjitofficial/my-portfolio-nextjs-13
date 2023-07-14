@@ -25,6 +25,7 @@ const BlogSlice = createSlice({
         },
         setMainPageBlogList:(state,action)=>{
             state.mainPageBlogList = action.payload;
+            console.log("here main",action.payload);
         },
         setPinnedList:(state,action)=>{
             state.pinnedList = action.payload;

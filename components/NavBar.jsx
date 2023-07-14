@@ -61,7 +61,7 @@ const NavBar = () => {
           Blogs
         </Link>
         
-        {router.pathname==="/blogs" && <BiSearch onClick={handleOnsearch} className="cursor-pointer w-8 h-8 ml-2"/>}
+        {/* {router.pathname==="/blogs" && } */}
 
       </div>
     </nav>
