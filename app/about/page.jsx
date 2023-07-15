@@ -1,136 +1,25 @@
+import Image from 'next/image';
 
-import { SINGLE_P } from '@/Services/graphql/query'
-import BlogPreviewSkeleton from '@/components/BlogPreviewSkeleton'
-import PinnedListSkeleton from '@/components/PinnedListSkeleton'
-import ProjectCardSkeleton from '@/components/ProjectCardSkeleton'
-import BlogsCardSkeleton from '@/components/blogCardSkeleto'
-
-// import React, { useEffect } from 'react'
-import Skeleton from 'react-loading-skeleton'
-import Ap from './Ap'
-import { client } from '@/Services/graphql'
-import { gql } from '@apollo/client'
-import { store } from '@/Redux/store/store'
-import { setMainPageBlogList } from '@/Redux/reducers/BlogsSlice'
-
-
-export async function generateMetadata({props}){
-  return {
-    title:"Hello world",
-    description:"Hi Guys"
-  }
-}
-
-const About = async() => {
-
-  async function hello(){
-    // const { data } = await fetch("https://helkh138.api.sanity.io/v1/graphql/production/experiment", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     query: `
-    //     query GetSinglePost{
-    //       allBlog{
-      
-           
-    //           title,
-    //      description,
-    //      slug{
-    //        current
-    //      }
-    //      poster{
-    //        asset{
-    //          url
-    //        }
-    //      }
-       
-    //      user{
-    //        title
-    //      }
-    //      createdAt
-    //       contentRaw
-    //     }
-    //   }
-    // `,
-    //   }),
-    //   next: { revalidate: 10 },
-    // }).then((res) => res.json());
-
-
-   
-    // console.log("data",data);
-  }
-
-  const { data } =await new Promise(async (resolve)=>{
-
-    const p =  await client.query({
-        query: gql`
-        query GetSinglePost{
-                allBlog{
-            
-                 
-                    title,
-               description,
-               slug{
-                 current
-               }
-               poster{
-                 asset{
-                   url
-                 }
-               }
-             
-               user{
-                 title
-               }
-               createdAt
-                contentRaw
-              }
-            }
-        `,
-      })
-    setTimeout(async() => {
-      resolve(p);
-    }, 500);
-
-  })
-  
-  console.log("here we go");
-  
-  
-  hello();
-  if(data){
-  
-
+const About = () => {
   return (
-    <div>
-     {/* <Ap/> */}
- 
-     {/* {JSON.stringify(store.getState().BlogSlice.mainPageBlogList)} */}
- 
-     {<Ap data={data}/>}
- 
-     
- 
-   <Ap/>
- 
- 
+    <>
+      <div className="flex flex-col  w-full border-t-2 border-l-2 border-r-2 border-b-2 rounded-md md:border-b-0 border-slate-800 md:border-slate-700  mt-0 ">
+      <div className="justify-center h-[20rem] md:h-[30rem] items-center  animate-pulse w-full flex relative">
+        {/* <img className="rounded-md max-h-[30rem] object-cover w-full" src={info.poster} loading="lazy" /> */}
+
+        <div className='max-h-[30rem] h-full  w-full bg-slate-700 rounded-md animate-pulse'>
+
+        </div>
+
+       
+      </div>
+     {Array(5).fill(0).map((val,index)=>{
+      return  <div key={index} className="mt-2 h-2 bg-slate-700 w-full animate-pulse">
+      </div>
+     })}
     </div>
-   )
-}
+    </>
+  );
+};
 
-
-return(
-  <h1>Fetching data</h1>
-)
-
-
-
-
-
- 
-}
-
-export default About
+export default About;

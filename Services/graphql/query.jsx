@@ -181,4 +181,23 @@ query GetSinglePost($query:String){
   }
 }
 
-`
+`;
+
+
+export const GET_ALL_BLOGS = gql`
+
+query GetPost{
+  allBlog{
+   
+    slug {
+      current
+    }
+
+
+  }
+  
+
+  
+}
+
+`;

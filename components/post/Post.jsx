@@ -10,6 +10,7 @@ import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { GoCopy } from "react-icons/go";
 import { BsCheck2 } from "react-icons/bs";
 import BlogPreviewSkeleton from "../BlogPreviewSkeleton";
+import Image from "next/image";
 
 const Post = ({ blogs }) => {
   // const builder = imageUrlBuilder(client);
@@ -41,13 +42,21 @@ useEffect(()=>{
   const SampleImageComponent = () => {
     return (
     <>
-    {!d? <div className="justify-center flex rounded-md">
-        <img
+    {!d? <div className="justify-center flex rounded-md relative">
+        {/* <img
           className="rounded-md"
           src={blogs.poster.asset.url}
           // alt={value.alt || "hellow"}
           loading="lazy"
-        />
+        /> */}
+
+<Image
+              src={blogs.poster.asset.url}
+              layout="fill"
+              objectFit="cover"
+              alt="image"
+              className="rounded-md"
+            />
       </div>:<BlogPreviewSkeleton/> }
     </>
     );

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import BlogsCardSkeleton from '../blogCardSkeleto'
+import Image from 'next/image'
 
 const BlogList = ({data}) => {
   
@@ -29,13 +30,21 @@ const BlogList = ({data}) => {
            //  href="/"
            className="hover:translate-y-1">
           <div className="overflow-hidden rounded-md group min-h-full  bg-slate-900 justify-center">
-            <div className=" md:h-52 h-64 ">
-              <img
+            <div className="relative md:h-52 h-64 ">
+              {/* <img
                 className="object-cover md:max-h-52 opacity-90 group-hover:opacity-80  h-full w-full object-center"
                 
                 src={val.poster.asset.url}
                 alt="img"
-                />
+                /> */}
+
+<Image
+              src={val.poster.asset.url}
+              layout="fill"
+              objectFit="cover"
+              alt="image"
+              className="rounded-md"
+            />
             </div>
             <h1 className="font-semibold text-slate-300 text-md md:text-2xl line-clamp-2 pt-2 font-Roboto">
               {/* {val.title} */}

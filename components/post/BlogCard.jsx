@@ -1,4 +1,5 @@
 import { convertDate } from "@/Redux/helper/Other";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -10,12 +11,20 @@ const BlogCard = ({ blogs }) => {
       className="hover:translate-y-1 "
     >
       <div className="overflow-hidden group rounded-md min-h-full  bg-slate-900 justify-center">
-        <div className=" md:h-52 h-64 ">
-          <img
+        <div className=" md:h-52 h-64 relative">
+          {/* <img
             className="object-cover md:max-h-52 group-hover:opacity-80 opacity-90  h-full w-full object-center"
             src={blogs.poster.asset.url}
             alt="img"
-          />
+          /> */}
+
+<Image
+              src={blogs.poster.asset.url}
+              layout="fill"
+              objectFit="cover"
+              alt="image"
+              className="rounded-md"
+            />
         </div>
         <h1 className=" text-slate-300 text-lg md:text-2xl line-clamp-2  font-bold pt-2 font-Roboto">
           {blogs.title}

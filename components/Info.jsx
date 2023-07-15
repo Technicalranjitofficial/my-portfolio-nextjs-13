@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import Image from "next/image";
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -28,52 +29,95 @@ const Info = () => {
             Writer.
           </p>
           <div className="mt-3 flex">
+          <a href="" className="hover:translate-y-1 rounded-lg">
+             
+             <div className="w-12 h-12 relative">
+             <Image
+               src="/assets/icons/in.png"
+               className=""
+               // width={12}
+               // height={12}
+               fill
+               loading="lazy"
+               objectFit="cover"
+               alt="image"
+             />
+             </div>
+           
+         </a>
             <a href="" className="hover:translate-y-1 rounded-lg">
-              <div className="relative">
-                <div className="bg-slate-700/80 opacity-0 hover:opacity-80 hover:animate-ping rounded-lg absolute w-11 h-10"></div>
-                <img className="w-12 h-12 " src="/assets/icons/in.png" alt="" />
-              </div>
-            </a>
-            <a href="" className="hover:translate-y-1 rounded-lg">
-              <div className="relative">
-                <div className="bg-slate-700/80 opacity-0 hover:opacity-80 hover:animate-ping rounded-lg absolute w-11 h-10"></div>
-                <img
-                  className="w-12 h-12"
+             
+                <div className="w-12 h-12 relative">
+                <Image
                   src="/assets/icons/insta.png"
-                  alt=""
+                  className=""
+                  // width={12}
+                  // height={12}
+                  fill
+                  loading="lazy"
+                  objectFit="cover"
+                  alt="image"
                 />
-              </div>
+                </div>
+              
             </a>
             <a href="" className="hover:translate-y-1 rounded-lg">
-              <div className="relative">
-                <div className="bg-slate-700/80 opacity-0 hover:opacity-80 hover:animate-ping rounded-lg absolute w-11 h-10"></div>
-
-                <img className="w-12  h-12" src="/assets/icons/yt.png" alt="" />
-              </div>
+             
+                <div className="w-12 opacity-80 h-12 relative">
+                <Image
+                  src="/assets/icons/yt2.png"
+                  className=""
+                  // width={12}
+                  // height={12}
+                  fill
+                  loading="lazy"
+                  objectFit="cover"
+                  alt="image"
+                />
+                </div>
+              
             </a>
-            <a href="" className="hover:translate-y-1 rounded-lg">
+            <a href="" className="hover:translate-y-1 rounded-lg group">
               <div className="relative">
-                <div className="bg-slate-700/80 opacity-0 hover:opacity-80 hover:animate-ping rounded-lg absolute w-11 h-10"></div>
-
-                <img
+           
+                {/* <img
                   className="w-12 h-12  rounded-lg"
                   src="/assets/icons/git.png"
                   alt=""
+                /> */}
+
+                <div className="w-12 h-12 relative">
+                <Image
+                  src="/assets/icons/git.png"
+                  className=""
+                  // width={12}
+                  // height={12}
+                  fill
+                  loading="lazy"
+                  objectFit="cover"
+                  alt="image"
                 />
+                </div>
               </div>
             </a>
           </div>
         </div>
         <div className=" md:w-1/2 h-72 md:h-96 mt-5 md:mt-0 flex items-center justify-center ">
-
-          <div className="w-72 flex items-center ring-2   ring-green-300 animate-pulse ring-opacity-100 h-72 md:w-96 md:h-96 border  rounded-full ">
-          <img
+          <div className="w-72  items-center ring-2 flex justify-center flex-col  ring-green-300 animate-pulse ring-opacity-100 h-72 md:w-96 md:h-96 border relative rounded-full ">
+            {/* <img
             className="h-64 rounded-full animate-pulse w-64  max-w-sm mx-auto"
             src="https://creativedesignsguru.com/demo/astro-boilerplate/assets/images/avatar.svg"
             alt="img"
-          />
+          /> */}
+            <Image
+              src="https://creativedesignsguru.com/demo/astro-boilerplate/assets/images/avatar.svg"
+              className="max-h-64 md:max-h-80"
+              layout="fill"
+              loading="lazy"
+              objectFit="contain"
+              alt="image"
+            />
           </div>
-         
         </div>
       </div>
     </div>

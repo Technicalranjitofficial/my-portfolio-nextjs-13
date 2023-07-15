@@ -5,6 +5,7 @@ import { convertDate } from "@/Redux/helper/Other";
 import { useDispatch, useSelector } from "react-redux";
 import { setMainPageBlogList } from "@/Redux/reducers/BlogsSlice";
 import BlogsCardSkeleton from "../blogCardSkeleto";
+import Image from "next/image";
 
 const RecentPosts = ({ data }) => {
   const blogs = useSelector((state) => state.BlogSlice.mainPageBlogList);
@@ -34,12 +35,21 @@ const RecentPosts = ({ data }) => {
                     className="hover:translate-y-1"
                   >
                     <div className="overflow-hidden rounded-md min-h-full border border-slate-600 bg-slate-900 justify-center">
-                      <div className=" md:h-52 h-64 ">
-                        <img
+                      <div className=" lg:w-[25rem]
+                      w-[30rem] md:w-[15rem] md:h-52 h-64 relative ">
+                        {/* <img
                           className="object-cover md:max-h-52  h-full w-full object-center"
                           src={val.poster.asset.url}
                           alt="img"
-                        />
+                        /> */}
+
+<Image
+              src={val.poster.asset.url}
+              layout="fill"
+              objectFit="cover"
+              alt="image"
+              className="rounded-md"
+            />
                       </div>
                       <h1 className="font-semibold text-slate-300 text-lg md:text-2xl line-clamp-2 pl-2 pt-2 font-Roboto">
                         {val.title}

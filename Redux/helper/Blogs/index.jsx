@@ -1,5 +1,5 @@
 import { client } from "@/Services/graphql"
-import { GET_POST_MAIN, GET_POST_PAGE, SINGLE_POST } from "@/Services/graphql/query"
+import { GET_ALL_BLOGS, GET_POST_MAIN, GET_POST_PAGE, SINGLE_POST } from "@/Services/graphql/query"
 
 export const GetMainPageData=async()=>{
  
@@ -42,11 +42,23 @@ export const GetBlogsPage=async()=>{
         query:SINGLE_POST,
         variables:{
             slug:slug
-        }
+        },
+        
+        
     }).then((data)=>{
         return data.data
 
        
+    }).catch((err)=>{
+        
+    });
+ }
+
+ export const GetAllBlogs =async()=>{
+    return await client.query({
+        query:GET_ALL_BLOGS,
+    }).then((data)=>{
+        return data.data
     }).catch((err)=>{
         
     });

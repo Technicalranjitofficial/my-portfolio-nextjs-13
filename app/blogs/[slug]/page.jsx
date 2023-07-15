@@ -17,11 +17,22 @@ import { SINGLE_POST } from "@/Services/graphql/query";
 // import Post from "@/components/post/Post";
 // import BlogPreviewSkeleton from "@/components/BlogPreviewSkeleton";
 // import BlogsCardSkeleton from "@/components/blogCardSkeleto";
-import { GetSinglePostDetails, getPostData } from "@/Redux/helper/Blogs";
+import { GetAllBlogs, GetSinglePostDetails, getPostData } from "@/Redux/helper/Blogs";
 import Post from "@/components/post/Post";
 
 
 
+// export const revalidate = 60;
+
+// export async function generateStaticParams(){
+//   const data = await GetAllBlogs();
+//   console.log("hello")
+//   return data.allBlog.map((blog)=>{
+//     return{
+//       slug:blog.slug.current
+//     }
+//   })
+// }
 
 export async function generateMetadata({params}){
   const data = await GetSinglePostDetails(params.slug);
@@ -68,7 +79,10 @@ const Page = async({ params }) => {
 
   const data = await GetSinglePostDetails(params.slug);
 
-  console.log(data);
+  
+  // console.log("AllBlogs",p.allBlog[0].slug.current);
+
+  // console.log(data);
 
 
 
