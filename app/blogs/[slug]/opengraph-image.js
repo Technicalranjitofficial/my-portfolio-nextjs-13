@@ -2,9 +2,12 @@
 import { GetSinglePostDetails } from "@/Redux/helper/Blogs";
 import { ImageResponse } from "next/server";
 
+
+export const runtime = 'edge'
+
 export const size = {
-  width: 900,
-  height: 450,
+  width: 1200,
+  height: 630,
 };
 
 export const contentType = "image/png";
