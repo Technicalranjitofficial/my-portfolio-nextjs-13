@@ -137,6 +137,22 @@ query GetSinglePost($slug:String){
 
 `;
 
+export const SINGLE_POST_OPENGRAPH=gql`
+query GetSinglePost($slug:String){
+    allBlog(where:{slug:{current:{eq:$slug}}}){
+    title,
+   poster{
+     asset{
+       url
+     }
+   }
+ 
+   
+}
+}
+
+`;
+
 
 
 export const SINGLE_P=gql`

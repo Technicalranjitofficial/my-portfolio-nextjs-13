@@ -1,5 +1,5 @@
 
-import { GetSinglePostDetails } from "@/Redux/helper/Blogs";
+import { GetSinglePostDetails, GetSinglePostOpenGraph } from "@/Redux/helper/Blogs";
 import { ImageResponse } from "next/server";
 
 
@@ -15,7 +15,7 @@ export const contentType = "image/png";
 
 
 export default async function og({ params }) {
-    const data = await GetSinglePostDetails(params.slug);
+    const data = await GetSinglePostOpenGraph(params.slug);
 
   return new ImageResponse(
     (
