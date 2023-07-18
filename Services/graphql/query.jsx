@@ -192,7 +192,7 @@ query GetPost{
     slug {
       current
     }
-
+    createdAt
 
   }
   
