@@ -32,6 +32,16 @@ import SeeMore from "@/components/SeeMore";
 import BlogHead from "@/components/post/BlogHead";
 import BlogList from "@/components/post/BlogList";
 
+
+export const metadata = {
+  title: {
+    absolute:"Blogs"
+  },
+  description: "Technicalranjit,Technical ranjit,This blog is belongs to technical ranjit,tech and science blog,technical website,tips and tricks website",
+
+};
+
+
 export default async function Blogs() {
   const data = await GetBlogsPage();
 
@@ -46,14 +56,16 @@ export default async function Blogs() {
           <BlogHead data={data.pinnedBlogs} />
         </div>
 
-        <div className="pt-36 text-white">
+        {/* <div className="border-t mt-16 border-gray-800  "></div> */}
+
+        <div className="md:pt-20 pt-28 text-white">
+          <div className="border-t mt-10 mb-10 border-gray-800 "></div>
           <div className="w-full justify-between flex flex-row items-center ">
             <div className="mb-3 flex font-bold md:text-2xl text-xl items-center md:mb-0">
               Posts
             </div>
-            <div className="border-slate-700  border flex  w-12 h-12 md:w-14 md:h-14 justify-center items-center  rounded-lg">
               <SearchBtn />
-            </div>
+           
           </div>
 
           <br />

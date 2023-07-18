@@ -61,22 +61,24 @@ const Info = () => {
                 </div>
               
             </a>
-            <a href="" className="hover:translate-y-1 rounded-lg">
+
+            {/* <a href="" className="hover:translate-y-1 rounded-lg">
              
-                <div className="w-12 opacity-80 h-12 relative">
-                <Image
-                  src="/assets/icons/yt2.png"
-                  className=""
-                  // width={12}
-                  // height={12}
-                  fill
-                  loading="lazy"
-                  objectFit="cover"
-                  alt="image"
-                />
-                </div>
-              
-            </a>
+             <div className="w-11 h-11  relative">
+             <Image
+               src="/assets/icons/yt.png"
+               className=""
+               // width={12}
+               // height={12}
+               fill
+               loading="lazy"
+               objectFit="cover"
+               alt="image"
+             />
+             </div>
+           
+         </a> */}
+           
             <a href="" className="hover:translate-y-1 rounded-lg group">
               <div className="relative">
            

@@ -103,7 +103,6 @@ export default async function Home() {
           <RecentPosts data={data.latestBlogs} />
           
       
-        <div className="border-t mt-7 border-gray-600 "></div>
       </div>
     </>
   );

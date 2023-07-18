@@ -111,15 +111,15 @@ const SearchBoxLayout = () => {
                   searchData.length > 0 ? (
                     <SearchResultCard blogs={searchData} />
                   ) : (
-                    <div className="flex w-full items-center justify-center">
+                    <div className="flex w-full text-slate-500 items-center justify-center">
                       <BiSearch className="h-5 w-5 " />
                       <h1 className="ml-2">No Result Found</h1>
                     </div>
                   )
                 ) : (
-                  <div className="flex w-full items-center justify-center">
+                  <div className="flex text-slate-500 w-full items-center justify-center">
                     <BiSearch className="h-5 w-5 " />
-                    <h1 className="ml-2">Search articles from this blog</h1>
+                    <h1 className="ml-2 ">Search articles from this blog</h1>
                   </div>
                 )}
               </div>
