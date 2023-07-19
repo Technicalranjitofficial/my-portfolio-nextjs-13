@@ -17,7 +17,6 @@ export const metadata = {
     default:"Ranjit Das - Portfolio | Blogs",
     template:`%s | Ranjit Das`
   },
-
   description: "Technicalranjit,Technical ranjit,This blog is belongs to technical ranjit,tech and science blog,technical website,tips and tricks website",
 
   verification:{

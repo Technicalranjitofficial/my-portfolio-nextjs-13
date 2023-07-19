@@ -6,8 +6,6 @@ import {
   setMorePost,
 } from "@/Redux/reducers/BlogsSlice";
 import { store } from "@/Redux/store/store";
-import { client } from "@/Services/graphql";
-import { FETCH_MORE } from "@/Services/graphql/query";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,28 +21,59 @@ const SeeMore = () => {
       return;
     }
     dispatch(setLoading(true));
-    const { data } = await client
-      .query({
-        query: FETCH_MORE,
-        variables: { limit: 6, offset: offset },
-      })
-      .catch((err) => {
-        console.log(err);
-        dispatch(setLoading(false));
-      });
+  
 
-    if (data) {
-      console.log(data);
-      if (data.latestBlogs.length > 0) {
-        console.log(data.latestBlogs);
-        dispatch(setMorePost(data.latestBlogs));
-        dispatch(setBlogOffset(offset + data.latestBlogs.length));
+    const data = await fetch(
+      "https://helkh138.api.sanity.io/v1/graphql/production/experiment",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          query: `query GetPost($limit:Int,$offset:Int){
+            latestBlogs: allBlog(sort:{createdAt:DESC},limit: $limit,offset:$offset) {
+              title
+              description
+              slug {
+                current
+              }
+              poster {
+                asset {
+                  url
+                }
+              }
+              user {
+                title
+              }
+              createdAt
+            }  
+          }`,
+          variables:{
+              limit:6,
+              offset:offset
+          }
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        
+      }
+    ).then((res)=>res.json());
+
+    console.log("dsjds",data.data);
+
+    if (data.data) {
+      
+      if (data.data.latestBlogs.length > 0) {
+        // console.log(data.latestBlogs);
+        dispatch(setMorePost(data.data.latestBlogs));
+        dispatch(setBlogOffset(offset + data.data.latestBlogs.length));
       } else {
         dispatch(setHasMoreBlogs(false));
       }
       dispatch(setLoading(false));
     }
-  }
+
+    }
+  
 
   return (
     <>

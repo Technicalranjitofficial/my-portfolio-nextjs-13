@@ -13,23 +13,18 @@ import BlogPreviewSkeleton from "../BlogPreviewSkeleton";
 import Image from "next/image";
 
 const Post = ({ blogs }) => {
-  // const builder = imageUrlBuilder(client);
   const [copid, setCopied] = useState(true);
 
-  // const code = useRef(null);
-  const [d,setD] = useState(false);
+  const [d, setD] = useState(false);
 
-useEffect(()=>{
-
-  if(blogs){
-    setD(true);
-    if(document.getElementsByClassName("body-overflow-hidden")!=null){
-      document.body.classList.remove("body-overflow-hidden")
+  useEffect(() => {
+    if (blogs) {
+      setD(true);
+      if (document.getElementsByClassName("body-overflow-hidden") != null) {
+        document.body.classList.remove("body-overflow-hidden");
+      }
     }
-  }
-},[blogs])
-
-
+  }, [blogs]);
 
   const handleOnCopy = async (code) => {
     navigator.clipboard.writeText(code);
@@ -39,35 +34,26 @@ useEffect(()=>{
     }, 1000);
   };
 
+
   const SampleImageComponent = () => {
+   
     return (
-    <>
-    {!d? <div className="justify-center flex rounded-md relative">
-        {/* <img
-          className="rounded-md"
+      <div className="justify-center flex rounded-md">
+        <img className="rounded-md"
+  
+
           src={blogs.poster.asset.url}
           // alt={value.alt || "hellow"}
           loading="lazy"
-        /> */}
-
-<Image
-              src={blogs.poster.asset.url}
-              layout="fill"
-              objectFit="cover"
-              alt="image"
-              className="rounded-md"
-            />
-      </div>:<BlogPreviewSkeleton/> }
-    </>
+    
+        />
+      </div>
     );
   };
 
+
   return (
     <div className="pt-12 md:pt-20 px-1 ">
-      {/* <div className="text-center text-white font-bold font-Montserrat text-2xl ">
-        Post
-      </div> */}
-
       <div className="">
         <Header
           value={blogs.poster}

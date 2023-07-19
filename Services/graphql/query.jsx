@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 
-export const GET_POST_MAIN = gql`
+export const GET_POST_MAIN =`
 
-query GetPost($limit:Int){
-  latestBlogs: allBlog(sort:{createdAt:DESC},limit: $limit) {
+query GetPost{
+  latestBlogs: allBlog(sort:{createdAt:DESC},limit:3){
     title
     description
     slug {
@@ -42,10 +42,10 @@ query GetPost($limit:Int){
 
 `;
 
-export const GET_POST_PAGE = gql`
+export const GET_POST_PAGE = `
 
-query GetPost($limit:Int,$pinnedLimit:Int,$offset:Int){
-  latestBlogs: allBlog(sort:{createdAt:DESC},limit: $limit,offset:$offset,where:{pinned:{neq:true}}) {
+query GetPost{
+  latestBlogs: allBlog(sort:{createdAt:DESC},offset:0,limit:3) {
     title
     description
     slug {
@@ -61,7 +61,7 @@ query GetPost($limit:Int,$pinnedLimit:Int,$offset:Int){
     }
     createdAt
   }
-  pinnedBlogs: allBlog(limit: $pinnedLimit, sort: { createdAt: DESC }, where: { pinned: { eq: true } }) {
+  pinnedBlogs: allBlog(limit: 4, sort: { createdAt: DESC }, where: { pinned: { eq: "true" } }) {
     title
     description
     slug {
@@ -84,10 +84,10 @@ query GetPost($limit:Int,$pinnedLimit:Int,$offset:Int){
 `;
 
 
-export const FETCH_MORE = gql`
+export const FETCH_MORE = `
 
-query GetPost($limit:Int,$offset:Int){
-  latestBlogs: allBlog(sort:{createdAt:DESC},limit: $limit,offset:$offset,where:{pinned:{neq:true}}) {
+query GetPost($limit:Int){
+  latestBlogs: allBlog(sort:{createdAt:DESC},limit: $limit,offset:7) {
     title
     description
     slug {
@@ -111,7 +111,7 @@ query GetPost($limit:Int,$offset:Int){
 `;
 
 
-export const SINGLE_POST=gql`
+export const SINGLE_POST=`
 query GetSinglePost($slug:String){
     allBlog(where:{slug:{current:{eq:$slug}}}){
 
@@ -137,7 +137,7 @@ query GetSinglePost($slug:String){
 
 `;
 
-export const SINGLE_POST_OPENGRAPH=gql`
+export const SINGLE_POST_OPENGRAPH=`
 query GetSinglePost($slug:String){
     allBlog(where:{slug:{current:{eq:$slug}}}){
     title,
@@ -155,7 +155,7 @@ query GetSinglePost($slug:String){
 
 
 
-export const SINGLE_P=gql`
+export const SINGLE_P=`
 query GetSinglePost{
     allBlog{
 
@@ -180,7 +180,7 @@ query GetSinglePost{
 }
 
 `
-export const SEARCH_BLOG=gql`
+export const SEARCH_BLOG=`
 query GetSinglePost($query:String){
   searchBlog: allBlog(where:{title:{matches:$query}}) {
     title
@@ -200,7 +200,7 @@ query GetSinglePost($query:String){
 `;
 
 
-export const GET_ALL_BLOGS = gql`
+export const GET_ALL_BLOGS = `
 
 query GetPost{
   allBlog{

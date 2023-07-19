@@ -9,15 +9,21 @@ import PinnedListSkeleton from "../PinnedListSkeleton";
 import Image from "next/image";
 
 const BlogHead = ({ data }) => {
-  console.log(data);
+  console.log("dsdsjdhsjdhsh",data);
 
   const pinnedBlogs = useSelector((state) => state.BlogSlice.pinnedList);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setPinnedList(data));
+    if(pinnedBlogs.length==0){
+      dispatch(setPinnedList(data));
+      console.log("piunefed",pinnedBlogs);
+      
+    }
   }, [data]);
   return (
     <>
+
+  
       {pinnedBlogs.length == 0 ? (
         <PinnedListSkeleton />
       ) : (
@@ -25,11 +31,7 @@ const BlogHead = ({ data }) => {
           <div className="left flex flex-col w-full md:w-8/12">
             <Link href={`/blogs/${pinnedBlogs[0].slug.current}`}>
               <div className="h-64 relative md:h-[30rem] rounded-md">
-                {/* <img
-                  src={pinnedBlogs[0].poster.asset.url}
-                  className="object-cover hover:opacity-80 opacity-90 rounded-md w-full h-full"
-                  alt=""
-                /> */}
+              
 
                 <Image
                   src={pinnedBlogs[0].poster.asset.url}

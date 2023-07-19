@@ -4,15 +4,15 @@ import Post from "@/components/post/Post";
 
 export async function generateMetadata({params}){
   const data = await GetSinglePostDetails(params.slug);
-  if(!data){
+  if(!data.data){
     return{
       title:"Post Not Found",
       description:"Post you are trying to get is not available"
     }
   }
   return {
-    title:data.allBlog[0].title,
-    description:data.allBlog[0].description,
+    title:data.data.allBlog[0].title,
+    description:data.data.allBlog[0].description,
     alternates:{
       canonical:`/blogs/${params.slug}`
     }
@@ -27,7 +27,7 @@ const Page = async({ params }) => {
     
       <div className="bg-slate-900 min-h-screen">
         <div className="mx-auto max-w-screen-xl px-1 py-6 ">
-            <Post blogs={data.allBlog[0]} />
+            <Post blogs={data.data.allBlog[0]} />
         </div>
       </div>
     </>

@@ -29,49 +29,10 @@ import { gql } from "@apollo/client";
 import { GetMainPageData } from "@/Redux/helper/Blogs";
 
 export default async function Home() {
-  // const blogsData = useSelector((state) => state.BlogSlice.mainPageBlogList);
-  // const projectList = useSelector((state) => state.BlogSlice.projectList);
-  // const dispatch = useDispatch();
-  // console.log("running");
-  // const { data, error, loading } = useQuery(GET_POST_MAIN, {
-  //   variables: { limit: 3, pinnedLimit: 3 },
-  // });
-
 
   const data = await GetMainPageData()
 
-  
-    console.log("data",data);
 
-  
-  
-
-  // const { data, error } = useSuspenseQuery<Response>(query);
-
-  // useEffect(() => {
-  //   if (loading) {
-  //     console.log("loading...");
-  //   }
-  //   if (error) {
-  //     console.log(error);
-  //   }
-  //   if(document.body.getElementsByClassName("body-overflow-hidden")!=null){
-  //   document.body.classList.remove("body-overflow-hidden");
-
-  //   }
-  //   if (data) {
-  //     if (store.getState().BlogSlice.mainPageBlogList.length < 1) {
-  //       dispatch(setMainPageBlogList(data.latestBlogs));
-
-  //     }
-  //     if (store.getState().BlogSlice.projectList.length < 1) {
-  //       dispatch(setProjectList(data.allProject));
-  //     }
-  //   }
-  // }, [data]);
-
-
-  console.log("daadad",data);
   return (
     <>
       <div className=" pt-20 md:pt-28 z-40">
@@ -90,7 +51,7 @@ export default async function Home() {
        
 
      
-          <RecentProjects data={data.allProject} />
+          <RecentProjects data={data.data.allProject} />
         
       </div>
       <br />
@@ -100,7 +61,7 @@ export default async function Home() {
         </span>
        
       
-          <RecentPosts data={data.latestBlogs} />
+          <RecentPosts data={data.data.latestBlogs} />
           
       
       </div>

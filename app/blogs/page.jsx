@@ -24,14 +24,17 @@
 //   setSearchData,
 // } from "@/Redux/reducers/BlogsSlice";
 
-import { GetBlogsPage } from "@/Redux/helper/Blogs";
+// "use client"
+
+import { GetAllBlogs, GetBlogsPage } from "@/Redux/helper/Blogs";
 import { store } from "@/Redux/store/store";
+import { client } from "@/Services/graphql";
+import { GET_ALL_BLOGS } from "@/Services/graphql/query";
 import SearchBoxLayout from "@/components/SearchBoxLayout";
 import SearchBtn from "@/components/SearchBtn";
 import SeeMore from "@/components/SeeMore";
 import BlogHead from "@/components/post/BlogHead";
 import BlogList from "@/components/post/BlogList";
-
 
 export const metadata = {
   title: {
@@ -41,22 +44,19 @@ export const metadata = {
 
 };
 
-
 export default async function Blogs() {
   const data = await GetBlogsPage();
-
-  console.log(data);
-
   return (
     <>
+
       <SearchBoxLayout />
 
       <>
         <div className=" pt-28">
-          <BlogHead data={data.pinnedBlogs} />
+          <BlogHead data={data.data.pinnedBlogs} />
         </div>
 
-        {/* <div className="border-t mt-16 border-gray-800  "></div> */}
+
 
         <div className="md:pt-20 pt-28 text-white">
           <div className="border-t mt-10 mb-10 border-gray-800 "></div>
@@ -69,7 +69,7 @@ export default async function Blogs() {
           </div>
 
           <br />
-          <BlogList data={data.latestBlogs} />
+          <BlogList data={data.data.latestBlogs} />
         </div>
 
         <div className="w-full flex justify-center items-center mt-14 pb-28">

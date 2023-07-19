@@ -8,8 +8,8 @@ import { Provider } from "react-redux";
 
 export function Porviders({children}){
     return<Provider store={store}>
-        <ApolloProvider client={client}>
+        {/* <ApolloProvider client={client}> */}
             {children}
-        </ApolloProvider>
+        {/* </ApolloProvider> */}
     </Provider>
 }
