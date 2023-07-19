@@ -8,7 +8,7 @@ export default async function sitemap() {
 
 
     const posts = await GetAllBlogs();
-    const posturl = posts.allBlog.map((val,index)=>({
+    const posturl = posts.data.allBlog.map((val,index)=>({
         url:`${baseUrl}/blogs/${val.slug.current}`,
         lastModified:val.createdAt
     }))

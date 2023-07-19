@@ -4,21 +4,6 @@ import { GET_ALL_BLOGS, GET_POST_MAIN, GET_POST_PAGE, SINGLE_POST, SINGLE_POST_O
 const baseUrl = "https://helkh138.api.sanity.io/v1/graphql/production/experiment";
 export const GetMainPageData=async()=>{
  
-    
-//    return await client.query({
-//         query:GET_POST_MAIN,
-//         variables:{
-//             limit:3
-//         }
-//     }).then((data)=>{
-//         console.log("maindata",data);
-//         return data.data
-
-       
-//     }).catch((err)=>{
-        
-//     });
-
 
   return await fetch(
     baseUrl,
@@ -104,7 +89,7 @@ export const GetBlogsPage=async()=>{
           headers: {
             "Content-Type": "application/json",
           },
-          next: { revalidate: 300 }
+        //   next: { revalidate: 300 }
         }
       ).then((res) => res.json()).catch((err)=>console.log(err));
  }
