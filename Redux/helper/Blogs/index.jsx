@@ -15,7 +15,7 @@ export const GetMainPageData=async()=>{
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: 3600 }
+      next: { revalidate: 0 }
     }
   ).then((res) => res.json()).catch((err)=>console.log(err));
 }

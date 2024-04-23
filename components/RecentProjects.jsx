@@ -91,6 +91,31 @@ const RecentProjects = ({ data }) => {
                                       data-bs-placement="top"
                                     />
                                   );
+ case "NestJs":
+                                  return (
+                                    <img
+                                      key={ind}
+                                      className=" mr-2 animate-pulse fill-red-600 w-8 transition-all cursor-pointer"
+                                      src="/assets/images/nestjs.png"
+                                      title="NextJs"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-placement="top"
+                                    />
+                                  );
+
+                                  case "Typescript":
+                                    return (
+                                      <img
+                                        key={ind}
+                                        className=" mr-2 animate-pulse rounded-full w-8 transition-all cursor-pointer"
+                                        src="/assets/images/typescript.png"
+                                        alt="socket"
+                                        title="Typescript"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="top"
+                                      />
+                                    );
+                                  
                                 case "Socket.io":
                                   return (
                                     <img
